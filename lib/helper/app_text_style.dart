@@ -22,4 +22,9 @@ class AppTextStyle {
       fontSize: 16,
       fontWeight: FontWeight.w400,
       color: AppColors.textTitleColor);
+  static const text8W400TextStyle = TextStyle(
+      fontFamily: 'Lato',
+      fontSize: 8,
+      fontWeight: FontWeight.w400,
+      color: AppColors.textTitleColor);
 }
