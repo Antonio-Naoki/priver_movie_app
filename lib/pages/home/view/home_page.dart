@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:priver_movie/helper/app_colors.dart';
 import 'package:priver_movie/helper/app_text_style.dart';
+import 'package:priver_movie/helper/helper.dart';
 import 'package:priver_movie/helper/ratio_calculator.dart';
 import 'package:priver_movie/models/movies/movies.dart';
 import 'package:priver_movie/pages/home/controller/home_controller.dart';
@@ -50,6 +51,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Container(
+                  margin: EdgeInsets.only(
+                    bottom: ratioCalculator.calculateHeight(36),
+                  ),
+                  height: ratioCalculator.calculateHeight(191),
                   child:
                       controller.state.fetchRecommendedState.when(loading: () {
                     return Center(child: CircularProgressIndicator());
@@ -58,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                         itemCount: list.length,
                         itemBuilder: (context, index) {
                           return CardTitle(
-                            movies: list[0],
+                            movies: list[6],
                           );
                         });
                   }),
@@ -72,7 +77,29 @@ class _HomePageState extends State<HomePage> {
                     style: AppTextStyle.text24W400TextStyle2,
                   ),
                 ),
-                CardCarousel(),
+                Container(
+                  height: ratioCalculator.calculateHeight(350),
+                  child:
+                      controller.state.fetchRecommendedState.when(loading: () {
+                    return Center(child: CircularProgressIndicator());
+                  }, loaded: (list) {
+                    return ListView.separated(
+                      itemCount: list.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return CardCarousel(
+                          movies: list[index],
+                        );
+                      },
+                      // 
+                      separatorBuilder: (BuildContext context, int index) {
+                        return SizedBox(
+                          width: ratioCalculator.calculateWidth(0),
+                        );
+                      },
+                    );
+                  }),
+                ),
               ],
             );
           }),
@@ -94,16 +121,18 @@ class CardTitle extends StatefulWidget {
 
 class _CardTitleState extends State<CardTitle> {
   final RatioCalculator ratioCalculator = RatioCalculator();
+  static const String BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500';
 
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<HomeController>(context);
+    String imagenURL = BASE_URL_IMAGE + widget.movies.posterPath;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Card(
           margin: EdgeInsets.only(
-            left: ratioCalculator.calculateWidth(26),
+            left: ratioCalculator.calculateWidth(27),
             right: ratioCalculator.calculateWidth(24),
             bottom: ratioCalculator.calculateHeight(36),
           ),
@@ -114,8 +143,15 @@ class _CardTitleState extends State<CardTitle> {
             width: ratioCalculator.calculateWidth(327),
             height: ratioCalculator.calculateHeight(191),
             decoration: BoxDecoration(
+              border: Border.all(
+                width: 0,
+              ),
               borderRadius: BorderRadius.circular(30),
-              color: Colors.blue,
+              color: AppColors.barraNavegacionColor,
+              image: DecorationImage(
+                image: NetworkImage(imagenURL),
+                fit: BoxFit.cover,
+              ),
             ),
             child: Card(
               color: Colors.transparent,
@@ -185,7 +221,8 @@ class _CardTitleState extends State<CardTitle> {
 
 // Segundo Card
 class CardCarousel extends StatefulWidget {
-  const CardCarousel({super.key});
+  final Movies movies;
+  const CardCarousel({super.key, required this.movies});
 
   @override
   State<CardCarousel> createState() => _CardCarouselState();
@@ -193,27 +230,36 @@ class CardCarousel extends StatefulWidget {
 
 class _CardCarouselState extends State<CardCarousel> {
   final RatioCalculator ratioCalculator = RatioCalculator();
+  static const String BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500';
 
   @override
   Widget build(BuildContext context) {
+    String imagenURL = BASE_URL_IMAGE + widget.movies.posterPath;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Card(
           margin: EdgeInsets.only(
             left: ratioCalculator.calculateWidth(58),
-            right: ratioCalculator.calculateWidth(59),
+            // right: ratioCalculator.calculateWidth(59),
             bottom: ratioCalculator.calculateHeight(11),
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
           child: Container(
-            width: ratioCalculator.calculateWidth(258),
+            width: ratioCalculator.calculateWidth(259),
             height: ratioCalculator.calculateHeight(336),
             decoration: BoxDecoration(
+              border: Border.all(
+                width: 0,
+              ),
               borderRadius: BorderRadius.circular(30),
-              color: Colors.blue,
+              color: AppColors.barraNavegacionColor,
+              image: DecorationImage(
+                image: NetworkImage(imagenURL),
+                fit: BoxFit.fill,
+              ),
             ),
             child: Column(
               children: [
@@ -267,7 +313,8 @@ class _CardCarouselState extends State<CardCarousel> {
                                 ),
                                 Container(
                                   child: Text(
-                                    " 7.0",
+                                    // Aqui llamo a la funcion de Helper que convierte el double.
+                                    formatearDecimal(widget.movies.voteAverage),
                                     style: AppTextStyle.text16W400TextStyle,
                                   ),
                                 )
@@ -308,10 +355,12 @@ class _CardCarouselState extends State<CardCarousel> {
                             right: ratioCalculator.calculateWidth(24),
                           ),
                           width: ratioCalculator.calculateWidth(181),
-                          child: Text(
-                            "Star Wars: The Last Jedi",
-                            overflow: TextOverflow.ellipsis,
-                            style: AppTextStyle.text16W400TextStyle,
+                          child: Center(
+                            child: Text(
+                              widget.movies.title,
+                              overflow: TextOverflow.ellipsis,
+                              style: AppTextStyle.text16W400TextStyle,
+                            ),
                           ),
                         )
                       ],
