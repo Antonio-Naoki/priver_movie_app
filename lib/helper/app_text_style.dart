@@ -26,5 +26,5 @@ class AppTextStyle {
       fontFamily: 'Lato',
       fontSize: 8,
       fontWeight: FontWeight.w400,
-      color: AppColors.textTitleColor);
+      color: AppColors.textTitleColorOpacity);
 }
