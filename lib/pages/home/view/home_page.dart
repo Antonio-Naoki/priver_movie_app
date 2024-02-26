@@ -5,7 +5,7 @@ import 'package:priver_movie/helper/app_text_style.dart';
 import 'package:priver_movie/helper/helper.dart';
 import 'package:priver_movie/helper/ratio_calculator.dart';
 import 'package:priver_movie/models/movies/movies.dart';
-import 'package:priver_movie/pages/detail/view/detail_page.dart';
+import 'package:priver_movie/pages/widgets/detail_page.dart';
 import 'package:priver_movie/pages/home/controller/home_controller.dart';
 import 'package:priver_movie/pages/home/controller/state/home_state.dart';
 import 'package:priver_movie/pages/widgets/card_carousel.dart';
