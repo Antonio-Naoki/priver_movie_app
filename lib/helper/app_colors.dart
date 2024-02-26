@@ -8,7 +8,11 @@ class AppColors {
   static const Color barraNavegacionColor = Color(0xff15141F);
   static const Color textTitleColor = Color(0xffFFFFFF);
   static const Color textTitleColorOpacity = Colors.white54;
-    static const Color cardIconStarColor = Color(0xffF3BE00);
+  static const Color transparente = Colors.transparent;
+  static const Color cardIconStarColor = Color(0xffF3BE00);
+  static const Color labelTitleColor = Color(0xffE0E0E0);
+  static const Color textTitleColorOpacity2 = Color(0xffBBBBBB);
+    static const Color dividerColor = Color(0xff515151);
 
   // Define the gradient colors
   static const List<Color> gradientColors = [
