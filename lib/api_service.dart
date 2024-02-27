@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  static const String apiKey = 'abaab63f95db96063d0cb378cfea8f87'; // Reemplaza con tu clave real
+  static const String apiKey = 'abaab63f95db96063d0cb378cfea8f87';
   static const String baseUrl = 'https://api.themoviedb.org/3';
 
   static Future<dynamic> getTrendingMovies() async {

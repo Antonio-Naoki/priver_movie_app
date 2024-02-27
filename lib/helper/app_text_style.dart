@@ -22,6 +22,11 @@ class AppTextStyle {
       fontSize: 16,
       fontWeight: FontWeight.w400,
       color: AppColors.textTitleColor);
+  static const text16W400TextStyle2 = TextStyle(
+      fontFamily: 'Lato',
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      color: AppColors.barraTitulosColor);
   static const text16W500TextStyle = TextStyle(
       fontFamily: 'Lato',
       fontSize: 16,

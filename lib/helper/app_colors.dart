@@ -14,6 +14,7 @@ class AppColors {
   static const Color textTitleColorOpacity2 = Color(0xffBBBBBB);
   static const Color dividerColor = Color(0xff515151);
   static const Color barraBusquedaColor = Color(0xff211F30);
+  static const Color barraTitulosColor = Color(0xffFF8F71);
 
   // Define the gradient colors
   static const List<Color> gradientColors = [
