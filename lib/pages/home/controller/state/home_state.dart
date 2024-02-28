@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:priver_movie/models/movies/movies.dart';
+import 'package:priver_movie/models/popular/movies_popular.dart';
 
 part 'home_state.freezed.dart';
 
@@ -16,6 +17,6 @@ class HomeState with _$HomeState {
 class FetchRecommendedState with _$FetchRecommendedState {
   const factory FetchRecommendedState.loading() = FetchRecommendedStateLoading;
   const factory FetchRecommendedState.loaded(
-    List<Movies> listRecommended,
+    List<MoviesPopular> listRecommended,
   ) = FetchRecommendedStateLoaded;
 }

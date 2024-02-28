@@ -43,7 +43,6 @@ class _DetailPageState extends State<DetailPage> {
                     width: double.infinity,
                     height: ratioCalculator.calculateHeight(287),
                     decoration: BoxDecoration(
-                      // color: Colors.white,
                       image: DecorationImage(
                         image: NetworkImage(imagenURL),
                         fit: BoxFit.fill,
@@ -58,11 +57,13 @@ class _DetailPageState extends State<DetailPage> {
                   Row(
                     children: [
                       Container(
+                        width: ratioCalculator.calculateWidth(300),
                         margin: EdgeInsets.only(
                           left: ratioCalculator.calculateWidth(24),
                         ),
                         child: Text(
                           widget.movies.title,
+                          overflow: TextOverflow.ellipsis,
                           style: AppTextStyle.text24W500TextStyle
                               .copyWith(decoration: TextDecoration.none),
                         ),
@@ -121,7 +122,7 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                       Container(
                         child: Text(
-                          formatearDecimal(widget.movies.voteAverage) + " (IMDb)",
+                          " " + formatearDecimal(widget.movies.voteAverage) + " (IMDb)",
                           style: AppTextStyle.text12W400TextStyle2.copyWith(
                             decoration: TextDecoration.none,
                           ),
@@ -280,25 +281,25 @@ class _DetailPageState extends State<DetailPage> {
                           .copyWith(decoration: TextDecoration.none),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.only(
-                      left: ratioCalculator.calculateWidth(24),
-                    ),
-                    height: 146,
-                    child:
-                        controller.state.fetchRecommendedState.when(loading: () {
-                      return Center(child: CircularProgressIndicator());
-                    }, loaded: (list) {
-                      return ListView.builder(
-                          itemCount: list.length,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return CardListDetail(
-                              movies: list[index],
-                            );
-                          });
-                    }),
-                  ),
+                  // Container(
+                  //   margin: EdgeInsets.only(
+                  //     left: ratioCalculator.calculateWidth(24),
+                  //   ),
+                  //   height: 146,
+                  //   child:
+                  //       controller.state.fetchRecommendedState.when(loading: () {
+                  //     return Center(child: CircularProgressIndicator());
+                  //   }, loaded: (list) {
+                  //     return ListView.builder(
+                  //         itemCount: list.length,
+                  //         scrollDirection: Axis.horizontal,
+                  //         itemBuilder: (context, index) {
+                  //           return CardListDetail(
+                  //             // movies: list[index],
+                  //           );
+                  //         });
+                  //   }),
+                  // ),
                 ],
               ),
             ),

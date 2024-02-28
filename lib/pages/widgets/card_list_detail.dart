@@ -4,11 +4,11 @@ import 'package:priver_movie/helper/app_colors.dart';
 import 'package:priver_movie/helper/app_text_style.dart';
 import 'package:priver_movie/helper/ratio_calculator.dart';
 import 'package:priver_movie/models/movies/movies.dart';
-import 'package:priver_movie/pages/widgets/detail_page.dart';
+import 'package:priver_movie/pages/detail/view/detail_page.dart';
 
 class CardListDetail extends StatefulWidget {
   final Movies movies;
-  const CardListDetail({super.key, required this.movies});
+  const CardListDetail(moviesPopular, {super.key, required this.movies});
 
   @override
   State<CardListDetail> createState() => _CardListDetailState();
@@ -57,11 +57,27 @@ class _CardListDetailState extends State<CardListDetail> {
           ),
         ),
         Container(
-          height: ratioCalculator.calculateHeight(40),
-          child: Text(
-            widget.movies.title + "\n" + "Type: " + widget.movies.mediaType,
-            style: AppTextStyle.text12W400TextStyle3
-                .copyWith(decoration: TextDecoration.none),
+          height: ratioCalculator.calculateHeight(20),
+          width: ratioCalculator.calculateWidth(110),
+          child: Center(
+            child: Text(
+              widget.movies.title,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyle.text12W400TextStyle3
+                  .copyWith(decoration: TextDecoration.none),
+            ),
+          ),
+        ),
+        Container(
+          height: ratioCalculator.calculateHeight(20),
+          width: ratioCalculator.calculateWidth(110),
+          child: Center(
+            child: Text(
+              "Type: " + widget.movies.mediaType,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyle.text12W400TextStyle3
+                  .copyWith(decoration: TextDecoration.none),
+            ),
           ),
         ),
       ],

@@ -414,3 +414,4 @@ const Map<String, dynamic> TrendingMovies = {
     "total_pages": 1000,
     "total_results": 20000
 };
+

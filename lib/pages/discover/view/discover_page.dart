@@ -7,6 +7,7 @@ import 'package:priver_movie/pages/discover/controller/state/discover_state.dart
 import 'package:priver_movie/pages/home/controller/home_controller.dart';
 import 'package:priver_movie/pages/widgets/card_grid.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 
 class DiscoverPage extends StatefulWidget {
   const DiscoverPage({super.key});
@@ -106,10 +107,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
                       }),
                 ),
                 Container(
-                  margin: EdgeInsets.only(
-                    left: ratioCalculator.calculateWidth(24),
-                    right: ratioCalculator.calculateWidth(24),
-                  ),
                   height: ratioCalculator.calculateHeight(500),
                   child: controller.state.fetchDiscoverState.when(
                       loading: () => Center(child: CircularProgressIndicator()),
@@ -121,8 +118,8 @@ class _DiscoverPageState extends State<DiscoverPage> {
                             mainAxisSpacing: 10, // spacing between rows
                             crossAxisSpacing: 8.0, // spacing between columns
                           ),
-                          // padding:
-                          //     EdgeInsets.all(8.0), // padding around the grid
+                          padding:
+                              EdgeInsets.all(8.0), // padding around the grid
                           itemCount: list.length, // total number of items
                           itemBuilder: (context, index) {
                             return CardGrid(movies: list[index]);

@@ -5,12 +5,13 @@ import 'package:priver_movie/helper/app_text_style.dart';
 import 'package:priver_movie/helper/helper.dart';
 import 'package:priver_movie/helper/ratio_calculator.dart';
 import 'package:priver_movie/models/movies/movies.dart';
-import 'package:priver_movie/pages/widgets/detail_page.dart';
+import 'package:priver_movie/pages/detail/view/detail_page.dart';
 import 'package:priver_movie/pages/home/controller/home_controller.dart';
 import 'package:priver_movie/pages/home/controller/state/home_state.dart';
 import 'package:priver_movie/pages/widgets/card_carousel.dart';
 import 'package:priver_movie/pages/widgets/card_title.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -60,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                     return Center(child: CircularProgressIndicator());
                   }, loaded: (list) {
                     return CardTitle(
-                      movies: list[6],
+                      moviesPopular: list[6],
                     );
                   }),
                 ),
@@ -69,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                       left: ratioCalculator.calculateWidth(24),
                       bottom: ratioCalculator.calculateHeight(24)),
                   child: Text(
-                    "Trending",
+                    "Popular",
                     style: AppTextStyle.text24W400TextStyle2,
                   ),
                 ),
@@ -80,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                     loaded: (list) => CarouselSlider.builder(
                       itemCount: list.length,
                       options: CarouselOptions(
-                        height: ratioCalculator.calculateHeight(360),
+                        height: ratioCalculator.calculateHeight(395),
                         viewportFraction: 0.7,
                         enlargeCenterPage: true,
                         enableInfiniteScroll: true,
@@ -89,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       itemBuilder: (context, index, realIndex) {
                         return CardCarousel(
-                          movies: list[index],
+                          moviesPopular: list[index],
                         );
                       },
                     ),

@@ -154,19 +154,19 @@ mixin _$FetchRecommendedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Movies> listRecommended) loaded,
+    required TResult Function(List<MoviesPopular> listRecommended) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<Movies> listRecommended)? loaded,
+    TResult? Function(List<MoviesPopular> listRecommended)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Movies> listRecommended)? loaded,
+    TResult Function(List<MoviesPopular> listRecommended)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -254,7 +254,7 @@ class _$FetchRecommendedStateLoadingImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Movies> listRecommended) loaded,
+    required TResult Function(List<MoviesPopular> listRecommended) loaded,
   }) {
     return loading();
   }
@@ -263,7 +263,7 @@ class _$FetchRecommendedStateLoadingImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<Movies> listRecommended)? loaded,
+    TResult? Function(List<MoviesPopular> listRecommended)? loaded,
   }) {
     return loading?.call();
   }
@@ -272,7 +272,7 @@ class _$FetchRecommendedStateLoadingImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Movies> listRecommended)? loaded,
+    TResult Function(List<MoviesPopular> listRecommended)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -325,7 +325,7 @@ abstract class _$$FetchRecommendedStateLoadedImplCopyWith<$Res> {
           $Res Function(_$FetchRecommendedStateLoadedImpl) then) =
       __$$FetchRecommendedStateLoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Movies> listRecommended});
+  $Res call({List<MoviesPopular> listRecommended});
 }
 
 /// @nodoc
@@ -347,7 +347,7 @@ class __$$FetchRecommendedStateLoadedImplCopyWithImpl<$Res>
       null == listRecommended
           ? _value._listRecommended
           : listRecommended // ignore: cast_nullable_to_non_nullable
-              as List<Movies>,
+              as List<MoviesPopular>,
     ));
   }
 }
@@ -355,12 +355,13 @@ class __$$FetchRecommendedStateLoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FetchRecommendedStateLoadedImpl implements FetchRecommendedStateLoaded {
-  const _$FetchRecommendedStateLoadedImpl(final List<Movies> listRecommended)
+  const _$FetchRecommendedStateLoadedImpl(
+      final List<MoviesPopular> listRecommended)
       : _listRecommended = listRecommended;
 
-  final List<Movies> _listRecommended;
+  final List<MoviesPopular> _listRecommended;
   @override
-  List<Movies> get listRecommended {
+  List<MoviesPopular> get listRecommended {
     if (_listRecommended is EqualUnmodifiableListView) return _listRecommended;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_listRecommended);
@@ -395,7 +396,7 @@ class _$FetchRecommendedStateLoadedImpl implements FetchRecommendedStateLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Movies> listRecommended) loaded,
+    required TResult Function(List<MoviesPopular> listRecommended) loaded,
   }) {
     return loaded(listRecommended);
   }
@@ -404,7 +405,7 @@ class _$FetchRecommendedStateLoadedImpl implements FetchRecommendedStateLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<Movies> listRecommended)? loaded,
+    TResult? Function(List<MoviesPopular> listRecommended)? loaded,
   }) {
     return loaded?.call(listRecommended);
   }
@@ -413,7 +414,7 @@ class _$FetchRecommendedStateLoadedImpl implements FetchRecommendedStateLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Movies> listRecommended)? loaded,
+    TResult Function(List<MoviesPopular> listRecommended)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -456,9 +457,10 @@ class _$FetchRecommendedStateLoadedImpl implements FetchRecommendedStateLoaded {
 
 abstract class FetchRecommendedStateLoaded implements FetchRecommendedState {
   const factory FetchRecommendedStateLoaded(
-      final List<Movies> listRecommended) = _$FetchRecommendedStateLoadedImpl;
+          final List<MoviesPopular> listRecommended) =
+      _$FetchRecommendedStateLoadedImpl;
 
-  List<Movies> get listRecommended;
+  List<MoviesPopular> get listRecommended;
   @JsonKey(ignore: true)
   _$$FetchRecommendedStateLoadedImplCopyWith<_$FetchRecommendedStateLoadedImpl>
       get copyWith => throw _privateConstructorUsedError;

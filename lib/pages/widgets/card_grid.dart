@@ -4,7 +4,7 @@ import 'package:priver_movie/helper/app_colors.dart';
 import 'package:priver_movie/helper/app_text_style.dart';
 import 'package:priver_movie/helper/ratio_calculator.dart';
 import 'package:priver_movie/models/movies/movies.dart';
-import 'package:priver_movie/pages/widgets/detail_page.dart';
+import 'package:priver_movie/pages/detail/view/detail_page.dart';
 
 class CardGrid extends StatefulWidget {
   final Movies movies;
@@ -57,10 +57,10 @@ class _CardGridState extends State<CardGrid> {
         Container(
             margin: EdgeInsets.only(
               top: ratioCalculator.calculateHeight(12),
-              // bottom: ratioCalculator.calculateHeight(15),
             ),
             child: Text(
               widget.movies.title,
+              overflow: TextOverflow.ellipsis,
               style: AppTextStyle.text16W400TextStyle,
             )),
       ],
