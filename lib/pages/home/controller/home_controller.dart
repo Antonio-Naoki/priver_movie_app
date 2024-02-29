@@ -19,7 +19,7 @@ class HomeController extends StateNotifier<HomeState> {
     var response = await apiService.getPopularMovies();
 
     response.when(left: (e) {
-      print("${e.toString()}");
+      // print("${e.toString()}");
     }, right: (json) {
       List<dynamic> list = json["results"];
       listPopularMoviesObject =

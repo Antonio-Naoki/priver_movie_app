@@ -6,6 +6,7 @@ import 'package:priver_movie/helper/ratio_calculator.dart';
 import 'package:priver_movie/models/movies/movies.dart';
 import 'package:priver_movie/models/popular/movies_popular.dart';
 import 'package:priver_movie/pages/detail/view/detail_page.dart';
+import 'package:priver_movie/pages/detail/view/detail_page2.dart';
 import 'package:priver_movie/pages/home/controller/home_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -32,13 +33,13 @@ class _CardTitleState extends State<CardTitle> {
       children: [
         GestureDetector(
           onTap: () {
-            // // Esta forma de llamar la pagina es para no mostrar la barra de navegacion en esa pagina especifica.
-            // PersistentNavBarNavigator.pushNewScreen(
-            //   context,
-            //   screen: DetailPage(movies: widget.movies,),
-            //   withNavBar: false, // Con esto no mostraremos la barra de navegacion en esta pagina a la que estamos llamando.
-            //   pageTransitionAnimation: PageTransitionAnimation.cupertino,
-            // );
+            // Esta forma de llamar la pagina es para no mostrar la barra de navegacion en esa pagina especifica.
+            PersistentNavBarNavigator.pushNewScreen(
+              context,
+              screen: DetailPage2(moviesPopular: widget.moviesPopular,),
+              withNavBar: false, // Con esto no mostraremos la barra de navegacion en esta pagina a la que estamos llamando.
+              pageTransitionAnimation: PageTransitionAnimation.cupertino,
+            );
           },
           child: Card(
             margin: EdgeInsets.only(
@@ -60,7 +61,7 @@ class _CardTitleState extends State<CardTitle> {
                 color: AppColors.barraNavegacionColor,
                 image: DecorationImage(
                   image: NetworkImage(imagenURL),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
               ),
               child: Card(

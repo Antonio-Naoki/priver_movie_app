@@ -18,7 +18,7 @@ class DiscoverController extends StateNotifier {
     var response = await apiService.getTrendingMovies();
 
     response.when(left: (e) {
-      print("${e.toString()}");
+      // print("${e.toString()}");
     }, right: (json) {
       List<dynamic> list = json["results"];
       listTrendingMoviesObject =

@@ -5,35 +5,36 @@ import 'package:priver_movie/helper/helper.dart';
 import 'package:priver_movie/helper/ratio_calculator.dart';
 import 'package:priver_movie/models/movies/movies.dart';
 import 'package:priver_movie/models/popular/movies_popular.dart';
-import 'package:priver_movie/pages/discover/controller/discover_controller.dart';
-import 'package:priver_movie/pages/discover/controller/state/discover_state.dart';
 import 'package:priver_movie/pages/home/controller/home_controller.dart';
 import 'package:priver_movie/pages/home/controller/state/home_state.dart';
 import 'package:priver_movie/pages/widgets/card_list_detail.dart';
 import 'package:priver_movie/pages/widgets/card_list_detail2.dart';
 import 'package:provider/provider.dart';
 
-class DetailPage extends StatefulWidget {
-  final Movies movies;
+class DetailPage2 extends StatefulWidget {
+  final MoviesPopular moviesPopular;
 
-  const DetailPage({super.key, required this.movies});
+  const DetailPage2({
+    super.key,
+    required this.moviesPopular,
+  });
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  State<DetailPage2> createState() => _DetailPage2State();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _DetailPage2State extends State<DetailPage2> {
   final RatioCalculator ratioCalculator = RatioCalculator();
   static const String BASE_URL_IMAGE = 'https://image.tmdb.org/t/p/w500';
 
   @override
   Widget build(BuildContext context) {
-    String imagenURL = BASE_URL_IMAGE + widget.movies.posterPath;
+    String imagenURL = BASE_URL_IMAGE + widget.moviesPopular.posterPath;
     return ChangeNotifierProvider(
-      create: (_) => DiscoverController(const DiscoverState())..init(),
+      create: (_) => HomeController(const HomeState())..init(),
       child: SafeArea(
         child: Builder(builder: (contextF) {
-          final controller = Provider.of<DiscoverController>(contextF);
+          final controller = Provider.of<HomeController>(contextF);
           return SingleChildScrollView(
             child: Container(
               color: AppColors.barraNavegacionColor,
@@ -66,7 +67,7 @@ class _DetailPageState extends State<DetailPage> {
                           left: ratioCalculator.calculateWidth(24),
                         ),
                         child: Text(
-                          widget.movies.title,
+                          widget.moviesPopular.name,
                           overflow: TextOverflow.ellipsis,
                           style: AppTextStyle.text24W500TextStyle
                               .copyWith(decoration: TextDecoration.none),
@@ -80,8 +81,7 @@ class _DetailPageState extends State<DetailPage> {
                         height: ratioCalculator.calculateHeight(22.04),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color:
-                              AppColors.iconSelectNavigation2.withOpacity(0.5),
+                          color: AppColors.iconSelectNavigation2.withOpacity(0.5),
                         ),
                         child: Center(
                           child: Text(
@@ -128,7 +128,7 @@ class _DetailPageState extends State<DetailPage> {
                       Container(
                         child: Text(
                           " " +
-                              formatearDecimal(widget.movies.voteAverage) +
+                              formatearDecimal(widget.moviesPopular.voteAverage) +
                               " (IMDb)",
                           style: AppTextStyle.text12W400TextStyle2.copyWith(
                             decoration: TextDecoration.none,
@@ -189,7 +189,7 @@ class _DetailPageState extends State<DetailPage> {
                               // right: ratioCalculator.calculateWidth(50),
                             ),
                             child: Text(
-                              widget.movies.releaseDate,
+                              widget.moviesPopular.firstAirDate,
                               style: AppTextStyle.text12W400TextStyle2.copyWith(
                                 decoration: TextDecoration.none,
                               ),
@@ -270,7 +270,7 @@ class _DetailPageState extends State<DetailPage> {
                       bottom: ratioCalculator.calculateHeight(20),
                     ),
                     child: Text(
-                      widget.movies.overview,
+                      widget.moviesPopular.overview,
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                       style: AppTextStyle.text14W400TextStyle2
@@ -292,17 +292,17 @@ class _DetailPageState extends State<DetailPage> {
                     margin: EdgeInsets.only(
                       left: ratioCalculator.calculateWidth(24),
                     ),
-                    height: 160,
+                    height: 190,
                     child:
-                        controller.state.fetchDiscoverState.when(loading: () {
+                        controller.state.fetchRecommendedState.when(loading: () {
                       return Center(child: CircularProgressIndicator());
                     }, loaded: (list) {
                       return ListView.builder(
                           itemCount: list.length,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) {
-                            return CardListDetail(
-                              movies: list[index],
+                            return CardListDetail2(
+                              moviesPopular: list[index],
                             );
                           });
                     }),

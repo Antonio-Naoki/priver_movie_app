@@ -58,12 +58,50 @@ class _UserPageState extends State<UserPage> {
                 Container(
                   margin: EdgeInsets.only(
                     left: ratioCalculator.calculateWidth(12),
-                    top: ratioCalculator.calculateHeight(70),
-                    bottom: ratioCalculator.calculateHeight(50),
+                    top: ratioCalculator.calculateHeight(40),
+                    bottom: ratioCalculator.calculateHeight(20),
                   ),
                   child: Text(
-                    "User",
+                    "Username",
                     style: AppTextStyle.text24W500TextStyle,
+                  ),
+                ),
+                Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text("Editar"),
+                        content: Text("Deseas modificar tu perfil ?"),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text("No"),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text("Si"),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(
+                      right: ratioCalculator.calculateWidth(20),
+                      top: ratioCalculator.calculateHeight(45),
+                      bottom: ratioCalculator.calculateHeight(20),
+                    ),
+                    child: Icon(
+                      Icons.mode_edit_sharp,
+                      color: Colors.blue,
+                      size: 24.0,
+                    ),
                   ),
                 ),
               ],
@@ -77,29 +115,21 @@ class _UserPageState extends State<UserPage> {
                 color: AppColors.dividerColor,
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(
-                top: ratioCalculator.calculateHeight(150),
-              ),
-              height: ratioCalculator.calculateHeight(200),
-              child: CarouselSlider.builder(
-                itemCount: listAnimation.length,
-                options: CarouselOptions(
-                  height: ratioCalculator.calculateHeight(900),
-                  viewportFraction: 0.05,
-                  enlargeCenterPage: true,
-                  enableInfiniteScroll: true,
-                  autoPlay: true,
-                  autoPlayInterval: Duration(milliseconds: 100),
-                  onPageChanged: (index, reason) {},
-                ),
-                itemBuilder: (context, index, realIndex) {
-                  return CardAnimation(
-                    listAnimation[index],
-                  );
-                },
-              ),
-            ),
+            // Container(
+            //   child: ListView.builder(
+            //       itemCount: 5,
+            //       itemBuilder: (context, index) {
+            //         return ListTile(
+            //           title: Text("data"),
+            //           subtitle: Text("data"),
+            //           leading: Icon(
+            //             Icons.favorite,
+            //             size: 24,
+            //             color: Colors.white,
+            //           ),
+            //         );
+            //       }),
+            // ),
           ],
         ),
       ),

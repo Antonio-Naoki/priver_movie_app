@@ -39,4 +39,18 @@ class ApiService {
           'Error al obtener datos: ${response.reasonPhrase} code: ${response.statusCode}'));
     }
   }
+
+  // funcion para traer los datos de la api como json... conexion con la api. Conexion a Now Playing Movies
+  Future<Either<Exception, Map<String, dynamic>>> getNewPlayingMovies() async {
+    final url = Uri.parse('$baseUrl/movie/now_playing');
+    final response = await http.get(url, headers: headers);
+
+    if (response.statusCode == 200) {
+      print(jsonDecode(response.body));
+      return Either.right(jsonDecode(response.body));
+    } else {
+      return Either.left(Exception(
+          'Error al obtener datos: ${response.reasonPhrase} code: ${response.statusCode}'));
+    }
+  }
 }

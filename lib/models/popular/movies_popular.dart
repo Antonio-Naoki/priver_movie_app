@@ -9,6 +9,8 @@ class MoviesPopular with _$MoviesPopular {
     required String name,
     @JsonKey(name: "vote_average") required double voteAverage,
     @JsonKey(name: "poster_path") required String posterPath,
+    @JsonKey(name: "first_air_date") required String firstAirDate,
+    required String overview,
   }) = _MoviesPopular;
 
   const MoviesPopular._();
