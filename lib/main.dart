@@ -31,3 +31,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// app de peliculas conectada a la api de themoviesdb

@@ -112,7 +112,7 @@ class _CardTitleState extends State<CardTitle> {
                             ),
                             Container(
                               child: Text(
-                                "Ready Player one",
+                                "Ready Player one.",
                                 style: AppTextStyle.text16W400TextStyle,
                               ),
                             ),
