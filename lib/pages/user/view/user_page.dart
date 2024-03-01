@@ -26,6 +26,78 @@ class _UserPageState extends State<UserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Mi Perfil'),
+        backgroundColor: AppColors.barraBusquedaColor,
+      ),
+      drawer: Drawer(
+        backgroundColor: AppColors.textColor,
+        width: 200,
+        child: ListView(
+          children: <Widget>[
+            ListTile(
+              title: Text(
+                'Historial',
+                style: TextStyle(color: AppColors.textTitleColor),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text(
+                'Peliculas',
+                style: TextStyle(color: AppColors.textTitleColor),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text(
+                'Descargas',
+                style: TextStyle(color: Colors.white),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text(
+                'Configuración',
+                style: TextStyle(color: AppColors.textTitleColor),
+              ),
+              onTap: () {},
+            ),
+            ListTile(
+              title: Text(
+                'Ayuda',
+                style: TextStyle(color: Colors.white),
+              ),
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text('Ayuda'),
+                      content: SingleChildScrollView(
+                        child: TextField(
+                          maxLines: 1,
+                          decoration: InputDecoration(
+                            hintText: 'Escriba aquí su pregunta...',
+                          ),
+                        ),
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          child: Text('Enviar'),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+            ),
+          ],
+        ),
+      ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,21 +187,6 @@ class _UserPageState extends State<UserPage> {
                 color: AppColors.dividerColor,
               ),
             ),
-            // Container(
-            //   child: ListView.builder(
-            //       itemCount: 5,
-            //       itemBuilder: (context, index) {
-            //         return ListTile(
-            //           title: Text("data"),
-            //           subtitle: Text("data"),
-            //           leading: Icon(
-            //             Icons.favorite,
-            //             size: 24,
-            //             color: Colors.white,
-            //           ),
-            //         );
-            //       }),
-            // ),
           ],
         ),
       ),
@@ -137,39 +194,18 @@ class _UserPageState extends State<UserPage> {
   }
 }
 
-class CardAnimation extends StatefulWidget {
-  const CardAnimation(String listAnimation, {super.key});
-
-  @override
-  State<CardAnimation> createState() => _CardAnimationState();
-}
-
-class _CardAnimationState extends State<CardAnimation> {
-  final RatioCalculator ratioCalculator = RatioCalculator();
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30),
-            ),
-            child: Container(
-              width: ratioCalculator.calculateWidth(250),
-              height: ratioCalculator.calculateHeight(200),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 0,
-                ),
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.blue,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+// Container(
+//   child: ListView.builder(
+//       itemCount: 5,
+//       itemBuilder: (context, index) {
+//         return ListTile(
+//           title: Text("data"),
+//           subtitle: Text("data"),
+//           leading: Icon(
+//             Icons.favorite,
+//             size: 24,
+//             color: Colors.white,
+//           ),
+//         );
+//       }),
+// ),

@@ -1,3 +1,4 @@
+import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:priver_movie/helper/app_colors.dart';
 import 'package:priver_movie/helper/app_text_style.dart';
@@ -81,7 +82,8 @@ class _DetailPage2State extends State<DetailPage2> {
                         height: ratioCalculator.calculateHeight(22.04),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: AppColors.iconSelectNavigation2.withOpacity(0.5),
+                          color:
+                              AppColors.iconSelectNavigation2.withOpacity(0.5),
                         ),
                         child: Center(
                           child: Text(
@@ -128,7 +130,8 @@ class _DetailPage2State extends State<DetailPage2> {
                       Container(
                         child: Text(
                           " " +
-                              formatearDecimal(widget.moviesPopular.voteAverage) +
+                              formatearDecimal(
+                                  widget.moviesPopular.voteAverage) +
                               " (IMDb)",
                           style: AppTextStyle.text12W400TextStyle2.copyWith(
                             decoration: TextDecoration.none,
@@ -269,13 +272,22 @@ class _DetailPage2State extends State<DetailPage2> {
                       top: ratioCalculator.calculateHeight(12),
                       bottom: ratioCalculator.calculateHeight(20),
                     ),
-                    child: Text(
+                    // Para usar ExpandableText hay que installar el package.
+                    child: ExpandableText(
                       widget.moviesPopular.overview,
-                      maxLines: 4,
-                      overflow: TextOverflow.ellipsis,
                       style: AppTextStyle.text14W400TextStyle2
                           .copyWith(decoration: TextDecoration.none),
+                      maxLines: 4,
+                      expandText: 'Read more',
+                      collapseText: 'Read less',
                     ),
+                    // child: Text(
+                    //   widget.moviesPopular.overview,
+                    //   maxLines: 4,
+                    //   overflow: TextOverflow.ellipsis,
+                    //   style: AppTextStyle.text14W400TextStyle2
+                    //       .copyWith(decoration: TextDecoration.none),
+                    // ),
                   ),
                   Container(
                     margin: EdgeInsets.only(
@@ -293,8 +305,8 @@ class _DetailPage2State extends State<DetailPage2> {
                       left: ratioCalculator.calculateWidth(24),
                     ),
                     height: 190,
-                    child:
-                        controller.state.fetchRecommendedState.when(loading: () {
+                    child: controller.state.fetchRecommendedState.when(
+                        loading: () {
                       return Center(child: CircularProgressIndicator());
                     }, loaded: (list) {
                       return ListView.builder(
