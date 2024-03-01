@@ -14,15 +14,7 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   final RatioCalculator ratioCalculator = RatioCalculator();
-  final List<String> listAnimation = [
-    ".",
-    ".",
-    ".",
-    ".",
-    ".",
-    ".",
-    ".",
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
