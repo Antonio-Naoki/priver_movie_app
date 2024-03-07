@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:priver_movie/helper/app_colors.dart';
 import 'package:priver_movie/helper/app_text_style.dart';
 import 'package:priver_movie/helper/ratio_calculator.dart';
+import 'package:priver_movie/services/notification_services.dart';
 
 class UserPage extends StatefulWidget {
   const UserPage({super.key});
@@ -79,6 +80,8 @@ class _UserPageState extends State<UserPage> {
                           child: Text('Enviar'),
                           onPressed: () {
                             Navigator.pop(context);
+                            // se mostrara una notificacion...
+                            showNotification();
                           },
                         ),
                       ],
