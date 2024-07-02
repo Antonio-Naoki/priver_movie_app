@@ -2,6 +2,7 @@
 
 Flutter project.
 
-## flutter pub get
-## dart run build_runner build 
+## run these commands
+flutter pub get
+dart run build_runner build 
 
