@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:priver_movie/models/movies/movies.dart';
 import 'package:priver_movie/models/popular/movies_popular.dart';
 
 part 'home_state.freezed.dart';

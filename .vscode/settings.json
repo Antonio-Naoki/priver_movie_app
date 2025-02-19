@@ -1,0 +1,8 @@
+{
+    "gitflow4code.features": [
+        {
+            "name": "feature/version_2",
+            "base": "master"
+        }
+    ]
+}

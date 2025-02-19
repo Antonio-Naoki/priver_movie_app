@@ -1,17 +1,23 @@
+import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:priver_movie/helper/app_colors.dart';
 import 'package:priver_movie/helper/app_text_style.dart';
-import 'package:priver_movie/helper/helper.dart';
 import 'package:priver_movie/helper/ratio_calculator.dart';
-import 'package:priver_movie/models/movies/movies.dart';
-import 'package:priver_movie/pages/detail/view/detail_page.dart';
 import 'package:priver_movie/pages/home/controller/home_controller.dart';
 import 'package:priver_movie/pages/home/controller/state/home_state.dart';
 import 'package:priver_movie/pages/widgets/card_carousel.dart';
 import 'package:priver_movie/pages/widgets/card_title.dart';
 import 'package:provider/provider.dart';
-import 'package:http/http.dart' as http;
+
+// import 'package:carousel_slider/carousel_slider.dart';
+// import 'package:priver_movie/helper/app_text_style.dart';
+// import 'package:priver_movie/helper/ratio_calculator.dart';
+// import 'package:priver_movie/pages/home/controller/home_controller.dart';
+// import 'package:priver_movie/pages/home/controller/state/home_state.dart';
+// import 'package:priver_movie/pages/widgets/card_carousel.dart';
+// import 'package:priver_movie/pages/widgets/card_title.dart';
+// import 'package:provider/provider.dart';
+// import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

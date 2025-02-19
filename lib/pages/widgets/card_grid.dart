@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:priver_movie/helper/app_colors.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:priver_movie/helper/app_text_style.dart';
 import 'package:priver_movie/helper/ratio_calculator.dart';
 import 'package:priver_movie/models/movies/movies.dart';

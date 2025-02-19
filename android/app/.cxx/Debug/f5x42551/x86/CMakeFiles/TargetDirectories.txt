@@ -1,0 +1,2 @@
+C:/Users/User/Desktop/priver_movie_app-master/priver_movie_app/android/app/.cxx/Debug/f5x42551/x86/CMakeFiles/edit_cache.dir
+C:/Users/User/Desktop/priver_movie_app-master/priver_movie_app/android/app/.cxx/Debug/f5x42551/x86/CMakeFiles/rebuild_cache.dir

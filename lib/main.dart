@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:priver_movie/global/botton_page.dart';
 import 'package:priver_movie/helper/app_colors.dart';
 import 'package:priver_movie/helper/ratio_calculator.dart';
-import 'package:priver_movie/pages/home/view/home_page.dart';
 import 'package:priver_movie/services/notification_services.dart';
 
 void main() async {
