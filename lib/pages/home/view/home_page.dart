@@ -43,8 +43,8 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   margin: EdgeInsets.only(
                     left: ratioCalculator.calculateWidth(24),
-                    top: ratioCalculator.calculateHeight(44),
-                    bottom: ratioCalculator.calculateHeight(28),
+                    top: ratioCalculator.calculateHeight(24),
+                    bottom: ratioCalculator.calculateHeight(24),
                   ),
                   child: Row(
                     children: [

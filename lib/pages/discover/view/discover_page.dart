@@ -40,7 +40,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
               children: [
                 Container(
                   margin: EdgeInsets.only(
-                    top: ratioCalculator.calculateHeight(36),
+                    top: ratioCalculator.calculateHeight(16),
                     left: ratioCalculator.calculateWidth(24),
                     bottom: ratioCalculator.calculateHeight(20),
                   ),
@@ -53,7 +53,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                   margin: EdgeInsets.only(
                     left: ratioCalculator.calculateWidth(24),
                     right: ratioCalculator.calculateWidth(24),
-                    bottom: ratioCalculator.calculateHeight(24),
+                    bottom: ratioCalculator.calculateHeight(10),
                   ),
                   width: ratioCalculator.calculateWidth(330),
                   height: ratioCalculator.calculateHeight(48),
