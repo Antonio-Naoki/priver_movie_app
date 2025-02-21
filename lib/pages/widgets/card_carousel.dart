@@ -79,7 +79,7 @@ class _CardCarouselState extends State<CardCarousel> {
                           ),
                           child: Container(
                             width: ratioCalculator.calculateWidth(77),
-                            height: ratioCalculator.calculateHeight(46),
+                            height: ratioCalculator.calculateHeight(54),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               color: Colors.white24,
