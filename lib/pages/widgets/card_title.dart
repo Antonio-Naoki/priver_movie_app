@@ -48,7 +48,7 @@ class _CardTitleState extends State<CardTitle> {
             ),
             child: Container(
               width: ratioCalculator.calculateWidth(327),
-              height: ratioCalculator.calculateHeight(191),
+              height: ratioCalculator.calculateHeight(200),
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 0,

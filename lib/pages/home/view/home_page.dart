@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                     return Center(child: CircularProgressIndicator());
                   }, loaded: (list) {
                     return CardTitle(
-                      moviesPopular: list[6],
+                      moviesPopular: list[1],
                     );
                   }),
                 ),
