@@ -41,14 +41,14 @@ class _CardTitleState extends State<CardTitle> {
             margin: EdgeInsets.only(
               left: ratioCalculator.calculateWidth(27),
               right: ratioCalculator.calculateWidth(24),
-              bottom: ratioCalculator.calculateHeight(36),
+              bottom: ratioCalculator.calculateHeight(26),
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30),
             ),
             child: Container(
               width: ratioCalculator.calculateWidth(327),
-              height: ratioCalculator.calculateHeight(200),
+              height: ratioCalculator.calculateHeight(198),
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 0,
